@@ -92,6 +92,7 @@ def get_first(lst):
 
 my_list = [3,1,6,7,5]
 print(get_first(my_list))
+print("\n")
 
 # Last Item
 def get_last(lst):
@@ -99,6 +100,61 @@ def get_last(lst):
 
 my_list_1 = [3,1,6,7,5]
 print(get_last(my_list_1))
+print("\n")
 
 # Counter
 
+def counter(num):
+    for i in range(num + 1):
+        print(i)
+
+counter(7)
+print("\n")
+
+# Sum of  1-10
+
+def sum_ten():
+    num = 10
+    sum_num = 0
+    for i in range(num + 1):
+        sum_num = sum_num + i
+    
+    return sum_num
+
+output = sum_ten()
+print(output)
+print("\n")
+
+# Total sum
+def sum_positive_range(stop):
+    sum_num = 0
+    for i in range(stop + 1):
+        sum_num += i
+    return sum_num
+
+sum = sum_positive_range(6)
+print(sum)
+print("\n")
+
+# Total Sum in range
+
+def sum_range(start , stop):
+    sum_num = 0
+    for i in range(start, stop + 1):
+        sum_num = sum_num + i
+    
+    return sum_num
+
+sum = sum_range(3 , 9)
+print(sum)
+print("\n")
+
+# Negative Numbers
+
+def print_negatives(lst):
+    for i in range(len(lst)):
+        if lst[i] < 0:
+            print(lst[i])
+        
+print_negatives([3,-2,2,1,-5])
+print("\n")
