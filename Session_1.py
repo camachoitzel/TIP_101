@@ -68,3 +68,37 @@ time = what_time_is_it(12)
 print(time + "\n")
 
 # Blackjack
+
+def blackjack(score):
+    if score == 21:
+        print("Blackjack!")
+    elif score > 21:
+        print("Bust")
+    elif score >= 17 or score > 21:
+        print("Nice hand!")
+    elif score < 17:
+        print("Hit me!")
+
+blackjack(24)
+blackjack(19)
+blackjack(21)
+blackjack(10)
+print("\n")
+
+# First Item
+
+def get_first(lst):
+    return lst.pop(0)
+
+my_list = [3,1,6,7,5]
+print(get_first(my_list))
+
+# Last Item
+def get_last(lst):
+    return lst.pop(len(lst) - 1)
+
+my_list_1 = [3,1,6,7,5]
+print(get_last(my_list_1))
+
+# Counter
+
