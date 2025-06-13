@@ -47,3 +47,30 @@ print_pair(dictionary, "patrick")
 print_pair(dictionary, "plankton")
 print_pair(dictionary, "spongebob")
 
+# Keys vs Values
+
+def keys_v_values(dictionary):
+    # initialize variables for the sums
+    sum_keys = sum(dictionary.keys())
+    sum_values = sum(dictionary.values())
+    # if key sums are greater than value sums print 'keys'
+    if sum_keys > sum_values:
+        return "keys"
+    # otherwise values are greater than keys therfore print 'values'
+    elif sum_keys < sum_values:
+        return "values"
+    # if they are equal then return balanced
+    else:
+        return "balanced"
+
+dictionary1 = {1:10, 2:20, 3:30, 4:40, 5:50, 6:60}
+greater_sum = keys_v_values(dictionary1)
+print(greater_sum)
+
+dictionary2 = {100:10, 200:20, 300:30, 400:40, 500:50, 600:60}
+greater_sum = keys_v_values(dictionary2)
+print(greater_sum)
+
+# Restock Inventory
+def restock_inventory(current_inventory, restock_list):
+    pass
