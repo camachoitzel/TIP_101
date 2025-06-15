@@ -72,5 +72,31 @@ greater_sum = keys_v_values(dictionary2)
 print(greater_sum)
 
 # Restock Inventory
+
 def restock_inventory(current_inventory, restock_list):
-    pass
+    # iterate through keys and values in restock_list
+    for key, value in restock_list.items():
+        # check if the keys in restock = current_inv
+        if key in current_inventory:
+            # if they are the same add its value to current inv
+            current_inventory[key] += value
+        else:
+            # if different add the key and value to current inventory
+            current_inventory[key] = value
+    # return the updated inventory
+    return current_inventory
+
+
+current_inventory = {
+    "apples": 30,
+    "bananas": 15,
+    "oranges": 10
+}
+
+restock_list = {
+    "oranges": 20,
+    "apples": 10,
+    "pears": 5
+}
+print(restock_inventory(current_inventory, restock_list))
+
