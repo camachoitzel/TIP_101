@@ -89,3 +89,36 @@ print(first_unique_char(str2))
 
 str3 = "aabb"
 print(first_unique_char(str3))
+
+# Problem 6: Minimum Distance
+# Write a function min_distance() that takes in a list of strings words and two strings word1 and word2' as parameters. 
+# The function should return the minimum distance between word1 and word2 in the list of words. 
+# The distance between one word and an adjacent word in the list is 1.
+
+def min_distance(words, word1, word2):
+    word1_count = -1
+    word2_count = -1
+    min_dist = 1000
+
+    for i, word in enumerate(words):
+        if word == word1:
+            word1_count = i
+            if word2_count != -1:
+                min_dist = min(min_dist, abs(word1_count - word2_count))
+        elif word == word2:
+            word2_count = i
+            if word1_count != -1:
+                min_dist = min(min_dist, abs(word1_count - word2_count))
+    
+    return min_dist
+
+
+words = ["the", "quick", "brown", "fox", "jumped", "the"]
+dist1 = min_distance(words, "quick", "jumped")
+dist2 = min_distance(words, "the", "jumped")
+print(dist1)
+print(dist2)
+
+words2 = ["code", "path", "code", "contribute",  "practice"]
+dist3 = min_distance(words2, "code", "practice")
+print(dist3)
