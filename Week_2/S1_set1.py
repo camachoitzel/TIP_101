@@ -4,13 +4,19 @@
 def is_subsequence(lst, sequence):
     # create empty list
     result = []
-
+    # if sequence is empty return empty list
     if sequence == []:
         return []
+    # iterate throuhg the list
     for num in lst:
+        # if num is not in result
         if num not in result:
+            # and if num is also in sequence list
             if num in sequence:
+                # add number to result list
                 result.append(num)
+    # return whether the result equals the sequence w/ T or F
+    # aka the list contains the sequence = T, F otherwise
     return result == sequence
 
 lst = [5, 1, 22, 25, 6, -1, 8, 10]
@@ -20,11 +26,17 @@ print(is_subsequence(lst, sequence))
 # Create Dictionary
 
 def create_dictionary(keys, values):
+    # create empty dict
     result = {}
+
+    # handles empty list
     if values == []:
         return result
+    # use the length of the keys list as the num of times you iterate through the list
     for i in range(len(keys)):
+        # insert the key at its same index in result dict w/ the value at that same index in values
         result[keys[i]]=  values[i]
+    # return the completed dictionary
     return result
 
 keys = ["peanut", "dragon", "star", "pop", "space"]
