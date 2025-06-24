@@ -112,3 +112,25 @@ restock_list = {
 }
 print(restock_inventory(current_inventory, restock_list))
 
+# Calculate GPA
+
+def calculate_gpa(report_card):
+    gpa = 0
+    grading_scale = {"A": 4, "B": 3, "C": 2, "D": 1, "F":0}
+    number_of_classes = len(report_card)
+
+    # loops through the report_card dict
+    for grade in report_card:
+        # letter = the values in report card 1 by 1 b/c of the loop
+        letter = report_card[grade]
+
+        # checks if the letter value in report_card is in the key values of grading_scale
+        if letter in grading_scale:
+            # if it is then the value of gpa is updated to the value of that letter in grading_scale dict
+            gpa += grading_scale[letter]
+    # returns a float (rounded to 2 decimal places) of the calculated gpa / number of classes to get the true gpa
+    return round(float(gpa / number_of_classes), 2)
+
+
+report_card = {"Math": "A", "Science": "C", "History": "A", "Art": "B", "English": "B", "Spanish": "A"}
+print(calculate_gpa(report_card))
