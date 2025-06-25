@@ -134,3 +134,62 @@ def calculate_gpa(report_card):
 
 report_card = {"Math": "A", "Science": "C", "History": "A", "Art": "B", "English": "B", "Spanish": "A"}
 print(calculate_gpa(report_card))
+
+# Best Book 
+
+def highest_rated(books):
+    # create empty dict to return result
+    highest_rated_book = {}
+    # set the highest rating to neg infinity to compare values in the rating
+    highest_rating = float('-inf')
+
+    # iterate through each dictionary in the books list
+    for book in books:
+        # check if the value of highest_rating is less than or equal to the value help by the key "rating"
+        if highest_rating <= book["rating"]:
+            # if true set the highest_rating to the current rating being checked as it is now the highest
+            highest_rating = book["rating"]
+            # set highest_rated_book to the book we found to be the highest rated
+            highest_rated_book = book
+    # return highest_rated_book as a dict
+    return highest_rated_book
+
+books = [
+    {"title": "Tomorrow, and Tomorrow, and Tomorrow",
+     "author": "Gabrielle Zevin",
+     "rating": 4.18
+    },
+    {"title": "A Fortune For Your Disaster",
+     "author": "Hanif Abdurraqib",
+     "rating": 4.47
+    },
+    {"title": "The Seven Husbands of Evenlyn Hugo",
+     "author": "Taylor Jenkins Reid",
+     "rating": 4.40
+    }
+]
+
+print("\n")
+
+print(highest_rated(books))
+
+# Index-Value Map
+def index_to_value_map(lst):
+    # create empty dict to return later
+    index_to_value = {}
+
+    # go through each index in the list
+    # for i in range(len(lst)):
+    #     # set the value at index i to the key "i"
+    #     index_to_value[i] = lst[i]
+
+    # or loop through the index and values
+    for i, value in enumerate(lst):
+        # set the key to the index at i and it's value to the value in the list
+        index_to_value[i] = value
+    return index_to_value
+
+
+print("\n")
+lst = ["apple", "banana", "cherry"]
+print(index_to_value_map(lst))
