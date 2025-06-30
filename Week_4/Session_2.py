@@ -7,22 +7,21 @@ def valid_palindrome(s):
     left = 0
     right = len(s) - 1
     deletion = False
-    found_palindrome = False
 
     while left < right:
         if s[left] == s[right]:
             
             left += 1
             right -= 1
+        # if the chars are not equal and no characters have been deleted
         elif not deletion:
             deletion = True
             left += 1
-
-        if left >= right:
-            found_palindrome = True
         else:
             break
-        
+    
+    else:
+        return True
     left = 0
     right = len(s) - 1
     deletion = False
@@ -36,13 +35,10 @@ def valid_palindrome(s):
             deletion = True
             right += 1
 
-        if left >= right:
-            found_palindrome = True
-
         else:
             return False
     
-    return found_palindrome
+    return True
         
-s = "abcca"
+s = "abca"
 print(valid_palindrome(s))
