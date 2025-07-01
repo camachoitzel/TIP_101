@@ -18,3 +18,22 @@ print(is_prime(5))
 print(is_prime(12))
 print(is_prime(9))
 
+
+# Two-pointer Reverse List
+# Write a function reverse_list() that takes in a list lst and returns elements of the list in reverse order. 
+# The list should be reversed in-place without using list slicing (e.g. lst[::-1]).
+# use 2 pointer approach
+
+def reverse_list(lst):
+    left = 0
+    right = len(lst) - 1
+
+    for i in range(len(lst) - 1):
+        temp = left
+        left = right
+        right = temp
+        left += 1
+        right -= 1
+
+lst = [1, 2, 3, 4, 5]
+print(reverse_list(lst))
