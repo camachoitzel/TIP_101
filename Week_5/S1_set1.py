@@ -252,6 +252,8 @@ class Pokemon:
 	    evolution_list = []
 
         current = starter_pokemon
+    
+    
 charizard = Pokemon("Charizard", ["fire", "flying"])
 charmeleon = Pokemon("Charmeleon", ["fire"], charizard)
 charmander = Pokemon("Charmander", ["fire"], charmeleon)
