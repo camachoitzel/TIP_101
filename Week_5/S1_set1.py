@@ -248,11 +248,21 @@ class Pokemon:
     def add_type(self, new_type):
         self.types.append(new_type)
 
-    def get_evolutionary_line(starter_pokemon):
-	    evolution_list = []
-
-        current = starter_pokemon
     
+def get_evolutionary_line(starter_pokemon):
+    # start the list with the starter pokemon
+    evolution_list = [starter_pokemon.name]
+    # set current to the pokemon passed to the method aka where the chain of evol begins
+    current = starter_pokemon
+    # while the pokemon still has an evolution
+    while current.evolution:
+        # add that evol to the list with the start pkmn
+        evolution_list.append(current.evolution.name)
+        # set current to the evolution of that start pkmn 
+        # and keep going through the evols to the next evol until it hits None
+        current = current.evolution
+    
+    return evolution_list    
     
 charizard = Pokemon("Charizard", ["fire", "flying"])
 charmeleon = Pokemon("Charmeleon", ["fire"], charizard)
