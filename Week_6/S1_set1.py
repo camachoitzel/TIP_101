@@ -117,52 +117,82 @@
 # Evaluate the time and space complexity of your solution. 
 # Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity.
 
+# class Node:
+#     def __init__(self, value, next=None):
+#        self.value = value
+#        self.next = next
+
+
+
+# def is_palindrome(head):
+#     slow = head 
+#     fast = head
+
+#     # find the middle
+#     while fast and fast.next:
+#         slow = slow .next
+#         fast = fast.next.next
+    
+#     # reverse the second half
+#     prev = None
+#     curr = slow
+
+#     while curr:
+#         next_node = curr.next
+#         curr.next = prev
+#         prev = curr
+#         curr = next_node
+
+#     # compare 1st half and reversed 2nd half
+#     first_half = head
+#     second_half = prev
+
+#     while second_half:
+#         if first_half.value != second_half.value:
+#             return False
+#         first_half = first_half.next
+#         second_half = second_half.next
+    
+#     return True
+
+
+# h = Node(1, Node(2, Node(1)))
+# print(is_palindrome(h))
+
+
+# Problem 6: Put it in Reverse
+# Given the head of a singly linked list, reverse the list, and return the reversed list. 
+# You must reverse the list in place. Return the head of the reversed list.
+# Evaluate the time and space complexity of your solution. 
+# Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity.
+
 class Node:
-    def __init__(self, value, next=None):
+   def __init__(self, value, next=None):
        self.value = value
        self.next = next
 
-
+# Helper function to print the linked list
 def print_list(node):
-        current = node
-        while current:
-            print(current.value, end=" -> " if current.next else "")
-            current = current.next
-        print()
+    current = node
+    while current:
+        print(current.value, end=" -> " if current.next else "")
+        current = current.next
+    print()
 
-
-def is_palindrome(head):
-    slow = head 
-    fast = head
-
-    # find the middle
-    while fast and fast.next:
-        slow = slow .next
-        fast = fast.next.next
-    
-    # reverse the second half
+def reverse(head):
+    curr = head
     prev = None
-    curr = slow
 
     while curr:
-        next_node = curr.next
+        temp = curr.next
         curr.next = prev
         prev = curr
-        curr = next_node
+        curr = temp
 
-    # compare 1st half and reversed 2nd half
-    first_half = head
-    second_half = prev
+    return prev
 
-    while second_half:
-        if first_half.value != second_half.value:
-            return False
-        first_half = first_half.next
-        second_half.next
-    
-    return True
+h = Node(1, Node(2, Node(3, Node(4))))
+new_head = reverse(h)
+print(new_head.value)
+print_list(new_head)
 
-
-h = Node(1, Node(2, Node(1)))
-print_list(h)
-# print(is_palindrome(h))

@@ -75,6 +75,6 @@ def is_palindrome(head):
         if first_half.value != second_half.value:
             return False
         first_half = first_half.next
-        second_half.next
+        second_half = second_half.next
     
     return True
