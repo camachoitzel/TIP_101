@@ -182,6 +182,7 @@ def print_list(node):
 def reverse(head):
     curr = head
     prev = None
+    temp = None
 
     while curr:
         temp = curr.next
