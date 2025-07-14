@@ -55,13 +55,12 @@ def find_last_node_in_cycle(head):
      prev = None
 
      while current.next:
-         prev = current
          if current not in seen:
              seen.add(current)
          else:
-             return current
+             return prev.value
+         prev = current
          current = current.next
-     return current
 
 
 num1 = Node(1)
