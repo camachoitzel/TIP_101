@@ -178,54 +178,54 @@
 # If you implemented it recursively, implement it iteratively.
 # Evaluate the time complexity of the function.
 
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class TreeNode:
+#     def __init__(self, val, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-def left_most(root):
-    if not root:
-        return None
+# def left_most(root):
+#     if not root:
+#         return None
     
-    if root.left:
-        return left_most(root.left)
+#     if root.left:
+#         return left_most(root.left)
     
-    return root.val
+#     return root.val
 
 
-root = TreeNode(1)
-root.left = TreeNode(2)
-root.left.left = TreeNode(4)
-root.left.right = TreeNode(3)
-root.right = TreeNode(5)
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.left.left = TreeNode(4)
+# root.left.right = TreeNode(3)
+# root.right = TreeNode(5)
 
-result = left_most(root)
-print(result)
+# result = left_most(root)
+# print(result)
 
 # Problem 6: In-order Traversal
 # Given the root of a binary tree, return a list representing the inorder traversal of its nodes' values. 
 # In an inorder traversal we traverse the left subtree, then the current node, then the right subtree.
 
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class TreeNode:
+#     def __init__(self, val, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-def inorder_traversal(root):
-    if not root:
-        return []
+# def inorder_traversal(root):
+#     if not root:
+#         return []
     
-    return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right)
+#     return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right)
 
 
-root = TreeNode(1)
-root.right = TreeNode(2)
-root.right.left = TreeNode(3)
-result = inorder_traversal(root)
+# root = TreeNode(1)
+# root.right = TreeNode(2)
+# root.right.left = TreeNode(3)
+# result = inorder_traversal(root)
 
-print(result)
+# print(result)
 
 # Example Input Tree #1: 
 #      1
@@ -247,3 +247,50 @@ print(result)
 
 # Input: root = 1
 # Output: [1]
+
+
+# Problem 7: Binary Tree Size
+# Given the root of a binary tree, write a function size() that returns the number of nodes in the binary tree.
+# Evaluate the time complexity of your function.
+
+class TreeNode():
+    def __init__(self, val, left = None , right = None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def size(root):
+    if not root:
+        return 0
+
+    left_size = size(root.left)
+    right_size = size(root.right)
+
+    return 1 + left_size + right_size
+
+
+root = TreeNode(4)
+root.left = TreeNode(2)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(3)
+root.right = TreeNode(5)
+result = size(root)
+print(result)
+
+# Example Input Tree #1: 
+
+#       4
+#      / \
+#     /   \
+#    2     5
+#   / \    
+#  1   3    
+
+# Input: root = 4
+# Expected Output: 5
+
+# Example Input Tree #2: 
+
+# Empty tree (None)
+# Input: root = None
+# Expected Output: 0
