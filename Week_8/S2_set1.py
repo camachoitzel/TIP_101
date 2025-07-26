@@ -60,34 +60,34 @@
 # Given the root of a binary tree, write a function height() that returns the height of a binary tree.
 # Evaluate the time complexity of your function.
 
-class TreeNode():
-     def __init__(self, value, left=None, right=None):
-         self.val = value
-         self.left = left
-         self.right = right
+# class TreeNode():
+#      def __init__(self, value, left=None, right=None):
+#          self.val = value
+#          self.left = left
+#          self.right = right
    
-def height(root):
-    if not root:
-        return 0
+# def height(root):
+#     if not root:
+#         return 0
     
-    left = height(root.left)
-    right = height(root.right)
+#     left = height(root.left)
+#     right = height(root.right)
 
-    if left > right:
-        return left + 1
-    else:
-        return right + 1
+#     if left > right:
+#         return left + 1
+#     else:
+#         return right + 1
     
 
 
-root = TreeNode(4)
-root.left = TreeNode(2)
-root.left.left = TreeNode(1)
-root.left.right = TreeNode(3)
+# root = TreeNode(4)
+# root.left = TreeNode(2)
+# root.left.left = TreeNode(1)
+# root.left.right = TreeNode(3)
 
-root.right = TreeNode(5)
+# root.right = TreeNode(5)
 
-print(height(root))
+# print(height(root))
 
 # Example Input Tree #1
 
@@ -179,3 +179,40 @@ print(height(root))
 
 #       4
 
+# Problem 4: BST Remove I
+# Use the provided pseudocode to solve the problem below. Given a key and the root of a binary search tree, 
+# remove the node with the given key. Return the root of the modified tree.
+# The tree is sorted by key. If multiple nodes with the given key exist, 
+# remove the first node you find.
+# If you need to remove a node with two children, use the in-order successor of that node, 
+# which is the smallest value in its right subtree. 
+# You do not need to maintain a balanced tree.
+# Evaluate the time complexity of your function.
+
+class TreeNode():
+     def __init__(self, key, value, left=None, right=None):
+        self.key = key
+        self.val = value
+        self.left = left
+        self.right = right
+         
+def remove_bst(root, key):
+	# Locate the node to be removed
+	# If the node is a leaf node:
+		# Remove the node by redirecting the appropriate child reference of its parent to None
+	# If the node has one parent:
+		# Replace the node with its child, updating its parent's nodes child reference appropriately
+	# If the node has two children:
+		# Find the node's inorder successor (smallest node in right subtree)
+		# Swap the value of the node and its inorder successor
+		# Recursively remove the successor (which now has the current node's value)
+	# Return the root of the updated tree
+	pass
+
+root = TreeNode(10, 'hi')
+root.left = TreeNode(5, 'hello')
+root.right = TreeNode(15, 'hola')
+root.left.left = TreeNode(1, 'a')
+root.left.right = TreeNode(8, 'b')
+root.right.left = TreeNode(13, 'c')
+root.right.right = TreeNode(16, 'd')
