@@ -197,17 +197,37 @@ class TreeNode():
         self.right = right
          
 def remove_bst(root, key):
-	# Locate the node to be removed
-	# If the node is a leaf node:
-		# Remove the node by redirecting the appropriate child reference of its parent to None
-	# If the node has one parent:
-		# Replace the node with its child, updating its parent's nodes child reference appropriately
-	# If the node has two children:
-		# Find the node's inorder successor (smallest node in right subtree)
-		# Swap the value of the node and its inorder successor
-		# Recursively remove the successor (which now has the current node's value)
-	# Return the root of the updated tree
-	pass
+    # Remove a node with a given key from the BST and return the new root.
+  
+    if not root:
+        return None
+
+    # Find the node to delete
+    if key < root.val:
+        root.left = remove_bst(root.left, key)
+    elif key > root.val:
+        root.right = remove_bst(root.right, key)
+    else:
+        # Node with only one child or no child
+        if not root.left:
+            return root.right
+        elif not root.right:
+            return root.left
+
+        # Node with two children, get the in-order successor (smallest in the right subtree)
+        temp_val = find_min(root.right)
+        root.val = temp_val
+        root.right = remove_bst(root.right, temp_val)
+
+    return root
+
+def find_min(node):
+    # Find the smallest value in the BST.
+    
+    current = node
+    while current.left is not None:
+        current = current.left
+    return current.val
 
 root = TreeNode(10, 'hi')
 root.left = TreeNode(5, 'hello')
