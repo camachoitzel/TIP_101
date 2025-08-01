@@ -27,14 +27,39 @@ def mergeSorted(list1, list2):
     # pointer for head of list 2
     ptr_2 = list2
 
-    
+    # pointers for the head and tail of new list
+    head = None
+    tail = None
     
     if not list1:
         return list2
-    else:
+    if not list2:
         return list1
     
-    if ptr_1.val < ptr_2.val:
-        new_list = 
+    if ptr_1.val <= ptr_2.val:
+        head = ptr_1
+        tail = ptr_1
+        ptr_1 = ptr_1.next
+    
+    elif ptr_1.val >= ptr_2.val:
+        head = ptr_2
+        tail = ptr_2
+        ptr_2 = ptr_2.next
+
+
+    while ptr_1 and ptr_2:
+        if ptr_1.val <= ptr_2.val:
+            tail.next = ptr_1
+            ptr_1 = ptr_1.next
+            tail = tail.next
+        else:
+            tail.next = ptr_2
+            ptr_2 = ptr_2.next
+            tail = tail.next
+    
+    tail.next = ptr_1 or ptr_2
+    return head
+        
+        
     
 
