@@ -4,6 +4,8 @@
 # Return False otherwise.
 # Evaluate the time complexity of your function.
 
+from collections import deque 
+
 class TreeNode:
     def __init__(self, val = 0, left = None, right = None):
         self.val = val
@@ -11,10 +13,25 @@ class TreeNode:
         self.right = right
 
 def is_symmetric(root):
-    # create a left and right var that will hold the curr left and right val
-    left = 0
-    right = 0
-    pass
+    if not root:
+        return True
+    
+    queue = deque([root.left, root.right])
+    
+    while queue:
+        remove_left = queue.popleft()
+        remove_right = queue.popleft()
+
+
+        if remove_left == None and remove_right == None:
+            continue
+        elif remove_left == None or remove_right == None:
+            return False
+        
+        queue.appendleft((remove_left.left, remove_right.right))
+        queue.appendleft((remove_left.right, remove_right.left))
+
+    
 
 
 # Example Tree #1:
