@@ -78,11 +78,52 @@ print(max_profit([7,1,5,3,6,4]))
 # If either list runs out of elements before the other, all nodes from the list with remaining nodes should be appended onto the end of the merged list. 
 # Return the head of the merged list.
 
-def shuffle_merge(head_a, head_b):
-    ptr_a = head_a
-    ptr_b = head_b
+class Node:
+    def __init__(self, value, next):
+        self.val = value
+        self.next = next
 
-    current = ptr_a.val
+def shuffle_merge(head_a, head_b):
+    # if a is empty return b
+    if not head_a:
+        return head_b
+    # if b is empty return a
+    if not head_b:
+        return head_a
+    
+    # start a list for the merged nodes with beggining of head_a
+    merged_list = head_a
+    # set the pointer to the current node in head_a to head_a.next
+    current_a = head_a.next
+    # current pointer at b is at the beggining of head_b
+    current_b = head_b
+    # set the pointer for where in the merged list we are to the beggining of the list
+    curr_merged = merged_list
+    
+    # use toggle to determine if we are advancing the a or b pointers
+    toggle = True
+    # while the lists for a and b are not empty
+    while current_a and current_b:
+        # if toggle is True
+        if toggle:
+            # set the next node in the merged list to the current node in the pointer current_b
+            curr_merged.next = current_b
+            # advance the pointer in current_b to the next so the loop continues until the end of the list
+            current_b = current_b.next
+        # if toggle is not true
+        else:
+            # we are in list a and we set the next node in the merged list to waht the current_a pointer holds
+            curr_merged.next = current_a
+            # advance the current_a pointer to the next node to continue loop
+            current_a = current_a.next
+        # advance the pointer in the merged list to be ready for the next input from either a or b
+        curr_merged = curr_merged.next
+        # set toggle to false if true and true if false to switch between lists a and b
+        toggle = not toggle
+    # if one list is longer than the other then attache the rest of the values to the merged_list
+    curr_merged.next = current_a if current_a else current_b
+    # return the head of the merged list
+    return merged_list
 
 
 
